@@ -27,17 +27,17 @@ class LessCompiler {
      * Default Constructor.
      */
     private LessCompiler() {
-        withContext { context ->
-            context.optimizationLevel = -1
+        withContext {
+            it.optimizationLevel = -1
 
             def global = new Global()
-            global.init context as Context
+            global.init it as Context
 
-            globalScope = context.initStandardObjects global
-            context.evaluateString globalScope, envRhino, "env.rhino.js", 1, null
-            context.evaluateString globalScope, less, "less.js", 1, null
+            globalScope = it.initStandardObjects global
+            it.evaluateString globalScope, envRhino, "env.rhino.js", 1, null
+            it.evaluateString globalScope, less, "less.js", 1, null
 
-            compileCss = context.compileFunction(globalScope, compiler, "compiler.js", 1, null)
+            compileCss = it.compileFunction(globalScope, compiler, "compiler.js", 1, null)
         }
     }
 
@@ -65,8 +65,8 @@ class LessCompiler {
      * @return the writer with the resulted code after the compilation
      */
     def static compile(Reader reader, Writer writer, Boolean compress = false) {
-        withContext { context ->
-            def script = compileCss.call(context, globalScope, null, [reader.text, compress] as Object[])
+        withContext {
+            def script = compileCss.call(it, globalScope, null, [reader.text, compress] as Object[])
 
             writer << script
             writer.flush()
