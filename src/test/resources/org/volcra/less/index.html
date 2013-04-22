@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Less Test</title>
+</head>
+<body>
+<script type="text/javascript" src="less-1.3.3.min.js"></script>
+<script type="text/javascript" src="compiler-test.js"></script>
+
+<textarea id="less" cols="30" rows="20">
+    // LESS
+
+    @color: #4D926F;
+
+    #header {
+    color: @color;
+    }
+    h2 {
+    color: @color;
+    }
+</textarea>
+<br>
+<pre>
+<code id="css">
+</code>
+</pre>
+<br>
+<label for="compress"><input id="compress" name="compress" type="checkbox" value="true">Compress</label>
+<br>
+<button onclick="document.getElementById('css').innerText = compileCss(document.getElementById('less').value, document.getElementById('compress').checked ? true : false)">
+    Compile
+</button>
+</body>
+</html>
