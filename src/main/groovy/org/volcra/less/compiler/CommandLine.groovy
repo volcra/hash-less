@@ -7,7 +7,7 @@ class CommandLine {
     /**
      * Command Line Builder.
      */
-    private cli
+    private def cli
 
     /**
      * Default constructor.

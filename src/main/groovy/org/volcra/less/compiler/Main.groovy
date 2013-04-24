@@ -8,13 +8,13 @@ class Main {
     /**
      * Command Line.
      */
-    private static cli = new CommandLine()
+    private static def cli = new CommandLine()
 
     /**
      * Less Compiler.
      */
     @Lazy
-    private static compiler = LessCompiler.instance
+    private static def compiler = LessCompiler.instance
 
     /**
      * Parsers the command line arguments and runs the Less compiler.
@@ -29,12 +29,12 @@ class Main {
             compiler.compile new FileReader(options.arguments()[0]), writer, options.c
 
             if (options.p) {
-                print writer
+                println writer
             } else {
                 def fileName = options.arguments()[0].replace ".less", ".css"
 
-                new File(fileName).withWriter { out ->
-                    out.writeLine writer.toString()
+                new File(fileName).withWriter("UTF-8") {
+                    it.writeLine writer.toString()
                 }
             }
         }
