@@ -1,8 +1,8 @@
-function compileCss(css, compress) {
+var compile = function (source, compress) {
     var result;
     var parser = new less.Parser();
 
-    parser.parse(css, function(e, tree) {
+    parser.parse(source, function(e, tree) {
         if (e instanceof Object) {
             throw e;
         }
@@ -11,4 +11,4 @@ function compileCss(css, compress) {
     });
 
     return result;
-}
+};

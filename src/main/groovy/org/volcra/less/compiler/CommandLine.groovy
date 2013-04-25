@@ -16,10 +16,10 @@ class CommandLine {
         cli = new CliBuilder(usage: 'less [options]', header: "Options")
 
         cli.h longOpt: "help", "Print Help."
-        cli.c longOpt: "compress", "Compile the JavaScript without the top-level function safety wrapper."
+        cli.c longOpt: "compress", "Compile the Less compressing the content."
         cli.j longOpt: "join", args: 1, argName: "FILE", "Before compiling, concatenate all scripts together in the order they were passed, and write them into the specified file. Useful for building large projects."
-        cli.o longOpt: "output", args: 1, argName: "DIR", "Write out all compiled JavaScript files into the specified directory."
-        cli.p longOpt: "print", "Instead of writing out the JavaScript as a file, print it directly to stdout."
+        cli.o longOpt: "output", args: 1, argName: "DIR", "Write out all compiled Less files into the specified directory."
+        cli.p longOpt: "print", "Instead of writing out the Less as a file, print it directly to stdout."
     }
 
     /**

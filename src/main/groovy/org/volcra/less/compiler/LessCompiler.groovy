@@ -12,16 +12,22 @@ class LessCompiler {
      * Global Scope.
      */
     private static def globalScope
-    private static def compileCss
 
-    private static def envRhino =
+    /**
+     * Compile Function.
+     */
+    private static def compileFn
+
+    private static final def envRhino =
         getClass().getResource("/org/volcra/less/env.rhino.1.2.js").text
 
-    private static def less =
+    private static final def less =
         getClass().getResource("/org/volcra/less/less-1.3.3.min.js").text
 
-    private static def compiler =
+    private static final def compiler =
         getClass().getResource("/org/volcra/less/compiler.min.js").text
+
+    private static final def importPattern = ~/^\s*@import\s+[\"|'](.+)[\"|'];.*$/
 
     /**
      * Default Constructor.
@@ -36,23 +42,9 @@ class LessCompiler {
             globalScope = it.initStandardObjects global
             it.evaluateString globalScope, envRhino, "env.rhino.js", 1, null
             it.evaluateString globalScope, less, "less.js", 1, null
+            it.evaluateString globalScope, compiler, "compiler.js", 1, null
 
-            compileCss = it.compileFunction globalScope, compiler, "compiler.js", 1, null
-        }
-    }
-
-    /**
-     * Higher Order function that provides a context to the closure being passed.
-     *
-     * @param c the function or closure to execute
-     */
-    static def withContext(Closure c) {
-        def context = Context.enter()
-
-        try {
-            c context
-        } finally {
-            Context.exit()
+            compileFn = globalScope.get "compile", globalScope
         }
     }
 
@@ -64,10 +56,34 @@ class LessCompiler {
      * @param compress
      * @return the writer with the resulted code after the compilation
      */
-    static def compile(Reader reader, Writer writer, Boolean compress = false) {
+    static def compile(File source, Writer writer, Boolean compress = false) {
+        def lessCode = new StringWriter()
+
+        source.newReader().transformLine lessCode, transformImportToText.curry(source.parentFile)
+
         withContext {
-            writer << compileCss.call(it, globalScope, null, [reader.text, compress] as Object[])
+            writer << compileFn.call(it, globalScope, null, [lessCode.toString(), compress] as Object[])
             writer.flush()
         }
+    }
+
+    /**
+     * Higher Order function that provides a context to the closure being passed.
+     *
+     * @param c the function or closure to execute
+     */
+    private static def withContext(Closure c) {
+        def context = Context.enter()
+
+        try {
+            c context
+        } finally {
+            Context.exit()
+        }
+    }
+
+    private static def transformImportToText = { parentFile, line ->
+        if (line ==~ importPattern) new File(parentFile, (line =~ importPattern)[0][1]).text
+        else line
     }
 }

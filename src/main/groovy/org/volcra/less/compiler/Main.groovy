@@ -8,25 +8,25 @@ class Main {
     /**
      * Command Line.
      */
-    private static def cli = new CommandLine()
+    private static final def cli = new CommandLine()
 
     /**
      * Less Compiler.
      */
-    @Lazy
-    private static def compiler = LessCompiler.instance
+    private static final def compiler = LessCompiler.instance
 
     /**
      * Parsers the command line arguments and runs the Less compiler.
      */
     static void main(String... args) {
-        def options = cli.parse(args);
+        def start = System.currentTimeMillis()
+        def options = cli.parse args
 
         if (options.arguments().isEmpty() || options.h) {
             cli.usage()
         } else {
             def writer = new StringWriter()
-            compiler.compile new FileReader(options.arguments()[0]), writer, options.c
+            compiler.compile new File(options.arguments()[0]), writer, options.c
 
             if (options.p) {
                 println writer
@@ -38,5 +38,6 @@ class Main {
                 }
             }
         }
+        println System.currentTimeMillis() - start
     }
 }

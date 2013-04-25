@@ -17,4 +17,9 @@ class MainTest extends GroovyTestCase {
     void testHelp() {
         Main.main "-h"
     }
+
+    void testBootstrapCompile() {
+        Main.main "src\\test\\resources\\bootstrap\\bootstrap.less"
+        Main.main "-cp", "src\\test\\resources\\bootstrap\\bootstrap.less"
+    }
 }
