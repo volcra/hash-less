@@ -22,14 +22,12 @@ class CommandLine {
     /**
      * Command Line Builder.
      */
-    private final cli
+    private final cli = new CliBuilder(usage: 'less [options]', header: 'Options')
 
     /**
      * Default constructor.
      */
     CommandLine() {
-        cli = new CliBuilder(usage: 'less [options]', header: 'Options')
-
         cli.with {
             h longOpt: 'help', 'Print Help.'
             c longOpt: 'compress', 'Compile the Less compressing the content.'
@@ -55,7 +53,7 @@ class CommandLine {
      * @param args the arguments to parse
      * @return the options holding the parse result
      */
-    def parse(String... args) {
+    OptionAccessor parse(String... args) {
         cli.parse args
     }
 }

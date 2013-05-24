@@ -69,7 +69,6 @@ class LessCompiler {
      * @param reader
      * @param writer
      * @param compress
-     * @return the writer with the resulted code after the compilation
      */
     void compile(File source, Writer writer, Boolean compress = false) {
         def lessCode = new StringWriter()
