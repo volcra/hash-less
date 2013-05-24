@@ -1,14 +1,14 @@
 /*
  * Copyright 2013 Volcra
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
+ * distributed under the License is distributed on an 'AS IS' BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
@@ -22,25 +22,30 @@ class CommandLine {
     /**
      * Command Line Builder.
      */
-    private def cli
+    private final cli
 
     /**
      * Default constructor.
      */
     CommandLine() {
-        cli = new CliBuilder(usage: 'less [options]', header: "Options")
+        cli = new CliBuilder(usage: 'less [options]', header: 'Options')
 
-        cli.h longOpt: "help", "Print Help."
-        cli.c longOpt: "compress", "Compile the Less compressing the content."
-        cli.j longOpt: "join", args: 1, argName: "FILE", "Before compiling, concatenate all scripts together in the order they were passed, and write them into the specified file. Useful for building large projects."
-        cli.o longOpt: "output", args: 1, argName: "DIR", "Write out all compiled Less files into the specified directory."
-        cli.p longOpt: "print", "Instead of writing out the Less as a file, print it directly to stdout."
+        cli.with {
+            h longOpt: 'help', 'Print Help.'
+            c longOpt: 'compress', 'Compile the Less compressing the content.'
+            j longOpt: 'join', args: 1,
+                argName: 'FILE', 'Before compiling, concatenate all scripts together in the order they were \
+                                  passed, and write them into the specified file. Useful for building large projects.'
+            o longOpt: 'output', args: 1,
+                argName: 'DIR', 'Write out all compiled Less files into the specified directory.'
+            p longOpt: 'print', 'Instead of writing out the Less as a file, print it directly to stdout.'
+        }
     }
 
     /**
      * <p>Show the command usage.</p>
      */
-    def usage() {
+    void usage() {
         cli.usage()
     }
 
