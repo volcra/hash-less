@@ -1,20 +1,87 @@
-    <div class="jumbotron">
+    <div class="jumbotron subhead">
       <div class="container">
         <h1>Usage</h1>
+        <p class="lead">How to get started.</p>
       </div>
     </div>
 
     <div class="container">
-      <section></section>
+      <div class="row">
+        <div class="span12">
+          <section>
+            <div class="page-header">
+              <h1>Getting Started</h1>
+            </div>
+            <p>You need to first get #Less, go to the <a href="#/download">Download</a> page for more information on how to install and set up #Less.</p>
+          </section>
+        </div>
+      </div>
 
       <div class="row">
         <div class="span12">
           <section>
             <div class="page-header">
-              <h1>Install</h1>
+              <h1>Getting Help</h1>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget interdum mi. Duis eget lacus sit amet lacus placerat ultricies nec in lorem. In felis mi, posuere imperdiet dignissim ut, tempus nec lectus. Sed auctor ante eu felis rhoncus feugiat. Nunc quis molestie nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce lacus lorem, lacinia sed vestibulum nec, ornare nec libero. Maecenas purus sapien, tristique sit amet imperdiet sed, posuere quis nibh.</p>
+            <p>#Less will print the command options by running.</p>
+            <pre><code class="bash">$>build\install\hash-less\bin\hash-less
+usage: less [options]
+Options
+ -c,--compress       Compile the Less compressing the content.
+ -h,--help           Print Help.
+ -j,--join &lt;FILE&gt;    Before compiling, concatenate all scripts together in
+                     the order they were
+                     passed, and write them into the specified file.
+                     Useful for building large projects.
+ -o,--output &lt;DIR&gt;   Write out all compiled Less files into the specified
+                     directory.
+ -p,--print          Instead of writing out the Less as a file, print it
+                     directly to stdout.</code></pre>
           </section>
         </div>
       </div>
+
+
+      <div class="row">
+        <div class="span12">
+          <section>
+            <div class="page-header">
+              <h1>Usage</h1>
+            </div>
+            <h2>Sample File</h2>
+            <pre><code class="css">@base: #f938ab;
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  box-shadow:         @style @c;
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow:    @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.box {
+  color: saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0 0 5px, 30%) }
+}</code></pre>
+            <p>Run the following command.</p>
+            <pre><code class="bash">$>build\install\hash-less\bin\hash-less -p src\test\resources\test.less</code></pre>
+            <p>This will compile the source file test.less and produce the following output</p>
+            <pre><code class="css">.box {
+  color: #fe33ac;
+  border-color: #fdcdea;
+}
+.box div {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}</code></pre>
+          </section>
+        </div>
+      </div>
+
     </div>
+
+    <script type="text/javascript">
+      $('code').each(function (i, el) { hljs.highlightBlock(el); });
+    </script>

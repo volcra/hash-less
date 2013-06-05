@@ -10,6 +10,8 @@ controller('MenuCtrl', ['$scope', '$location', function ($scope, $location) {
         items: [{
                 text: 'Home', url: '#/home', target: '_self'
             }, {
+                text: 'Download', url: '#/download', target: '_self'
+            }, {
                 text: 'Usage', url: '#/usage', target: '_self'
             }, {
                 text: 'API', url: 'api', target: '_blank'
