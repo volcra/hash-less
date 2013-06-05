@@ -2,22 +2,22 @@
 
 /* Controllers */
 
-less.
+app.
 controller('ViewCtrl', ['$scope', function ($scope) {
 }]).
 controller('MenuCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.menu = {
         items: [{
-                text: 'Home', url: '/home'
+                text: 'Home', url: '#/home', target: '_self'
             }, {
-                text: 'Usage', url: '/usage'
+                text: 'Usage', url: '#/usage', target: '_self'
             }, {
-                text: 'API', url: '/api'
+                text: 'API', url: 'api', target: '_blank'
             }
         ]
     }
 
     $scope.getMenuItemClassStyle = function (item) {
-        return $location.url().search(item.url) == 0 ? 'active' : '';
+        return $location.url().search(item.url.replace('#', '')) == 0 ? 'active' : '';
     }
 }]);
