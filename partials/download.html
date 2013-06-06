@@ -23,9 +23,13 @@
             <div class="page-header">
               <h1>Get the code</h1>
             </div>
-            <p>#Less is still in development, currently the only way to get it is to download the source from <img src="img/octocat-icon.png"> Github.</p>
+            <div class="alert alert-error">
+              #Less is in devleopment and it may change continuosly until it reaches a GA version.
+            </div>
+            <p>Currently the only way to get it downloading the source from
+              <img src="img/octocat-icon.png" width="28" height="23"> <a href="https://github.com/volcra/hash-less">GitHub</a>.</p>
             <pre><code class="bash">git clone git://github.com/volcra/hash-less.git</code></pre>
-            <p>Or just download the <a href="https://github.com/volcra/hash-less/zipball/master">ZIP</a> and exract.</p>
+            <p>Or just download the <a href="https://github.com/volcra/hash-less/zipball/master">ZIP</a> and exract in a directory of your choice.</p>
           </section>
         </div>
       </div>
@@ -36,12 +40,16 @@
             <div class="page-header">
               <h1>Install</h1>
             </div>
-            <p>Gradle is used as build tool. The Gradle wrapper is provided for quick development.</p>
+            <p>Gradle is used as build tool. The Gradle wrapper is provided for quick development. Gradle will be automatically
+              downloaded and used to run the build.</p>
             <h2>Windows</h2>
+            <p>In Windows the batch script is called gradlew.bat.</p>
             <pre><code class="bash">gradlew installApp</code></pre>
             <h2>Unix</h2>
+            <p>In Unix the batch script is gradle.</p>
             <pre><code class="bash">gradle installApp</code></pre>
-            <p>This will create the executable with all the dependecies in directory <code>${basedir}\build\install\hash-less</code>.</p>
+            <p>The <code>installApp</code> task is provided by the application plugin. This will create the executable with all
+              the dependecies in directory <code>${basedir}\build\install\hash-less</code>.</p>
           </section>
         </div>
       </div>
@@ -52,8 +60,8 @@
             <div class="page-header">
               <h1>Verify</h1>
             </div>
-            <p>Execute the following command and you should expect the following output.</p>
-            <pre><code class="bash">$>build\install\hash-less\bin\hash-less
+            <p>Execute the command and you should expect the following output.</p>
+            <pre class="screen">$>build\install\hash-less\bin\hash-less
 usage: less [options]
 Options
  -c,--compress       Compile the Less compressing the content.
@@ -65,7 +73,7 @@ Options
  -o,--output &lt;DIR&gt;   Write out all compiled Less files into the specified
                      directory.
  -p,--print          Instead of writing out the Less as a file, print it
-                     directly to stdout.</code></pre>
+                     directly to stdout.</pre>
 
             <p>Now you are ready to head to the <a href="#/usage">Usage</a> page.</p>
           </section>

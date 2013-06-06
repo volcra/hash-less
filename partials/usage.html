@@ -12,7 +12,7 @@
             <div class="page-header">
               <h1>Getting Started</h1>
             </div>
-            <p>You need to first get #Less, go to the <a href="#/download">Download</a> page for more information on how to install and set up #Less.</p>
+            <p>You need first to get #Less, go to the <a href="#/download">Download</a> page for more information on how to install and set up #Less.</p>
           </section>
         </div>
       </div>
@@ -23,8 +23,8 @@
             <div class="page-header">
               <h1>Getting Help</h1>
             </div>
-            <p>#Less will print the command options by running.</p>
-            <pre><code class="bash">$>build\install\hash-less\bin\hash-less
+            <p>Run #Less without any options or passing <code>-h</code> or <code>--help</code> to get help.</p>
+            <pre class="screen">$>build\install\hash-less\bin\hash-less
 usage: less [options]
 Options
  -c,--compress       Compile the Less compressing the content.
@@ -36,7 +36,7 @@ Options
  -o,--output &lt;DIR&gt;   Write out all compiled Less files into the specified
                      directory.
  -p,--print          Instead of writing out the Less as a file, print it
-                     directly to stdout.</code></pre>
+                     directly to stdout.</pre>
           </section>
         </div>
       </div>
@@ -46,9 +46,26 @@ Options
         <div class="span12">
           <section>
             <div class="page-header">
-              <h1>Usage</h1>
+              <h1>Command-Line Usage</h1>
             </div>
+            <h2>Options</h2>
+            <h3>-c,--compress</h3>
+            <p>Compress will minify the compiled CSS.</p>
+            <h3>-j,--join &lt;FILE&gt;</h3>
+            <p>This is usefull for projects with multiple sources. Before compiling, the list of files will be joined togheter in the
+              order they were passed.</p>
+            <div class="alert alert-info">
+              You may also use @import in your LESS style sheets to produce same effect.
+            </div>
+            <h3>-o,--output &lt;DIR&gt;</h3>
+            <p>By default compiled CSS are written to the same location fo the LESS style sheet. To change that behavior use this option.</p>
+            <h3>-p,--print</h3>
+            <p>Write the compiled CSS to <code>stdout</code>.</p>
+            <p>You may send the output to a file of your choice.</p>
+            <pre><code class="bash">$>build\install\hash-less\bin\hash-less -p src\test\resources\test.less > test.css</code></pre>
             <h2>Sample File</h2>
+            <p>This file is located at <code>${basedir}\src\test\resources\test.less</code>.
+              Where basedir is the path where you unpacked the application.</p>
             <pre><code class="css">@base: #f938ab;
 
 .box-shadow(@style, @c) when (iscolor(@c)) {
@@ -64,8 +81,10 @@ Options
   border-color: lighten(@base, 30%);
   div { .box-shadow(0 0 5px, 30%) }
 }</code></pre>
+            <p>Then execute the hash-less command. The option <code>-p</code> will instruct the command to
+              print the result to the console.</p>
             <pre><code class="bash">$>build\install\hash-less\bin\hash-less -p src\test\resources\test.less</code></pre>
-            <p>This will compile the source file test.less and produce the following output</p>
+            <p>This will compile the source file test.less and produce the following output.</p>
             <pre><code class="css">.box {
   color: #fe33ac;
   border-color: #fdcdea;

@@ -1,7 +1,7 @@
 /* HTML
 ---------------------------------------------------------------------------- */
 body {
-  background: url(../img/noise.png);
+  background-image: url(../img/noise.png);
   font-family: 'Marmelad', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -24,7 +24,6 @@ section .lead {
 footer {
   text-align: center;
   padding: 30px 0;
-  margin-top: 70px;
   border-top: 3px solid #C93836;
   background-color: #262523;
   color: #ffffff;
@@ -37,6 +36,15 @@ footer p {
 pre {
   background-color: #3f3f3f;
   padding: 5px;
+}
+
+pre.screen {
+  padding: 11px;
+  color: #dcdcdc;
+}
+
+.view {
+  padding-bottom: 40px;
 }
 
 /* navbar
