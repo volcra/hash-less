@@ -49,17 +49,17 @@ Options
               <h1>Command-Line Usage</h1>
             </div>
             <h2>Options</h2>
-            <h3>-c,--compress</h3>
+            <h3 class="code">-c,--compress</h3>
             <p>Compress will minify the compiled CSS.</p>
-            <h3>-j,--join &lt;FILE&gt;</h3>
+            <h3 class="code">-j,--join &lt;FILE&gt;</h3>
             <p>This is usefull for projects with multiple sources. Before compiling, the list of files will be joined togheter in the
               order they were passed.</p>
             <div class="alert alert-info">
               You may also use @import in your LESS style sheets to produce same effect.
             </div>
-            <h3>-o,--output &lt;DIR&gt;</h3>
+            <h3 class="code">-o,--output &lt;DIR&gt;</h3>
             <p>By default compiled CSS are written to the same location fo the LESS style sheet. To change that behavior use this option.</p>
-            <h3>-p,--print</h3>
+            <h3 class="code">-p,--print</h3>
             <p>Write the compiled CSS to <code>stdout</code>.</p>
             <p>You may send the output to a file of your choice.</p>
             <pre><code class="bash">$>build\install\hash-less\bin\hash-less -p src\test\resources\test.less > test.css</code></pre>
@@ -83,9 +83,9 @@ Options
 }</code></pre>
             <p>Then execute the hash-less command. The option <code>-p</code> will instruct the command to
               print the result to the console.</p>
-            <pre><code class="bash">$>build\install\hash-less\bin\hash-less -p src\test\resources\test.less</code></pre>
             <p>This will compile the source file test.less and produce the following output.</p>
-            <pre><code class="css">.box {
+            <pre class="screen">$>build\install\hash-less\bin\hash-less -p src\test\resources\test.less
+.box {
   color: #fe33ac;
   border-color: #fdcdea;
 }
@@ -93,7 +93,7 @@ Options
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}</code></pre>
+}</pre>
           </section>
         </div>
       </div>

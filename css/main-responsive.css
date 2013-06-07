@@ -10,6 +10,15 @@
   .jumbotron p {
     font-size: 37px;
   }
+
+  .navbar .nav > li > a {
+    font-size: 17px;
+  }
+
+  .navbar-fixed-top .navbar-inner,
+  .navbar-fixed-bottom .navbar-inner {
+    padding: 0 7px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -70,20 +79,12 @@
     line-height: 1.5;
   }
 
-  .navbar-hash .brand {
+  .navbar .brand {
     font-size: 23px;
   }
 
-  .navbar-hash.navbar .btn-navbar {
-    margin-top: 12px;
-  }
-
-  .navbar-hash .nav > li > a {
-    font-size: 14px;
-  }
-
-  .navbar-hash .nav > li > a {
-    padding: 10px 20px 11px;
+  .navbar .nav > li > a {
+    font-size: 15px;
   }
 
   .jumbotron {
