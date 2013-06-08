@@ -1,18 +1,6 @@
 @media (max-width: 979px) {
-  .jumbotron {
-    padding: 50px 0;
-  }
-
-  .jumbotron h1 {
-    font-size: 75px;
-  }
-
-  .jumbotron p {
-    font-size: 37px;
-  }
-
   .navbar .nav > li > a {
-    font-size: 17px;
+    font-weight: normal;
   }
 
   .navbar-fixed-top .navbar-inner,
@@ -22,13 +10,9 @@
 }
 
 @media (max-width: 767px) {
-  section {
-    padding-top: 5px;
-    padding-bottom: 0;
-  }
-
+  section .page-header,
   h1 {
-    font-size: 34.5px;
+    font-size: 32px;
   }
 
   h2 {
@@ -59,7 +43,6 @@
     font-size: 14px;
   }
 
-
   footer, .jumbotron {
     margin-left: -20px;
     margin-right: -20px;
@@ -80,7 +63,7 @@
   }
 
   .navbar .brand {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .navbar .nav > li > a {
@@ -88,7 +71,7 @@
   }
 
   .jumbotron {
-    padding: 30px;
+    padding: 20px;
     text-shadow: 0 5px 10px rgba(0,0,0,.75), 0 0 30px rgba(0,0,0,.75);
   }
 
@@ -106,10 +89,5 @@
 
   .subhead.jumbotron p {
     font-size: 19px;
-  }
-
-  .jumbotron .container {
-    margin-left: 20px;
-    margin-right: 20px;
   }
 }

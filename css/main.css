@@ -5,13 +5,7 @@ body {
   font-family: 'Marmelad', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
-  padding-top: 55px;
-}
-
-section {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 45px;
 }
 
 section .page-header {
@@ -64,18 +58,19 @@ h5.code {
 
 .view {
   padding-bottom: 40px;
+  min-height: 600px;
 }
 
 .page-header {
-  padding-bottom: 9px;
-  margin: 20px 0 30px;
+  padding-bottom: 2px;
+  margin: 15px 0;
   border-bottom: 1px solid #ddd;
 }
 
 /* navbar
 ---------------------------------------------------------------------------- */
 .navbar-wrapper {
-  height: 55px;
+  height: 45px;
   position: fixed;
   top: 0;
   left: 0;
@@ -113,13 +108,12 @@ h5.code {
 }
 
 .navbar .brand {
-  font-size: 31px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .navbar .nav > li > a {
-  font-size: 18px;
-  font-weight: normal;
+  font-size: 16px;
 }
 
 .navbar .btn-navbar .icon-bar {
@@ -140,7 +134,8 @@ h5.code {
   position: relative;
   text-align: center;
   color: #ddd;
-  padding: 50px 0;
+  padding: 30px 0;
+  margin-bottom: 15px;
   background-color: #262523;
   font-family: 'Finger Paint', cursive;
   text-shadow: 0 5px 10px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,1);
@@ -165,18 +160,17 @@ h5.code {
 
 .subhead.jumbotron {
   text-align: left;
-  padding: 25px 0;
-  padding-top: 20px;
+  padding-left: 20px;
   text-shadow: 0 2px 5px rgba(0,0,0,.8), 0 0 15px rgba(0,0,0,.8);
 }
 
 .subhead.jumbotron h1 {
-  font-size: 65px;
+  font-size: 60px;
   line-height: 1;
 }
 
 .subhead.jumbotron p {
-  font-size: 30px;
+  font-size: 27px;
   line-height: 1.5;
 }
 
