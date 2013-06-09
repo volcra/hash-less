@@ -66,21 +66,21 @@ Options
         <h2>Sample File</h2>
         <p>This file is located at <code>${basedir}\src\test\resources\test.less</code>.
           Where basedir is the path where you unpacked the application.</p>
-        <pre><code hljs class="css">@base: #f938ab;
+        <pre><code class="css"><span class="keyword">@base</span>: <span class="rules"><span class="value"><span class="hexcolor">#f938ab;</span></span></span>
 
-.box-shadow(@style, @c) when (iscolor(@c)) {
-  box-shadow:         @style @c;
-  -webkit-box-shadow: @style @c;
-  -moz-box-shadow:    @style @c;
-}
-.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
-  .box-shadow(@style, rgba(0, 0, 0, @alpha));
-}
-.box {
-  color: saturate(@base, 5%);
-  border-color: lighten(@base, 30%);
-  div { .box-shadow(0 0 5px, 30%) }
-}</code></pre>
+.<span class="class">box-shadow</span><span class="rules"><span class="value">(<span class="keyword">@style</span>, <span class="keyword">@c</span>)</span> <span class="keyword">when</span> <span class="value">(iscolor(<span class="keyword">@c</span>))</span> {
+  <span class="attribute">box-shadow</span>:         <span class="value"><span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">-webkit-box-shadow</span>: <span class="value"><span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">-moz-box-shadow</span>:    <span class="value"><span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+}</span>
+.<span class="class">box-shadow</span><span class="rules"><span class="value">(<span class="keyword">@style</span>, <span class="keyword">@alpha</span>: <span class="number">50</span>%)</span> <span class="keyword">when</span> <span class="value">(isnumber(<span class="keyword">@alpha</span>))</span> {
+  .<span class="value">box-shadow(<span class="keyword">@style</span>, rgba(<span class="number">0, 0, 0</span>, <span class="keyword">@alpha</span>));</span>
+}</span>
+.<span class="class">box</span> <span class="rules">{
+  <span class="attribute">color</span>: <span class="value">saturate(<span class="keyword">@base</span>, <span class="number">5</span>%);</span>
+  <span class="attribute">border-color</span>: <span class="value">lighten(<span class="keyword">@base</span>, <span class="number">30</span>%);</span>
+  <span class="class">div</span> <span class="rules">{ .<span class="value">box-shadow</span><span class="value">(<span class="number">0 0 5</span>px, <span class="number">30</span>%)</span> }</span>
+}</span></code></pre>
         <p>Then execute the hash-less command. The option <code>-p</code> will instruct the command to
           print the result to the console.</p>
         <p>This will compile the source file test.less and produce the following output.</p>
