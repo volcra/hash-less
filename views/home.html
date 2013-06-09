@@ -1,62 +1,112 @@
-    <div class="jumbotron">
-      <div class="container">
-        <h1>#Less</h1>
-        <p class="lead">The Groovy Less Compiler</p>
-        <div class="visible-phone">
-          <p><a href="https://github.com/volcra/hash-less/zipball/master" class="btn btn-primary">Download</a> <a href="https://github.com/volcra/hash-less" class="btn">GitHub Project</a></p>
-        </div>
-        <div class="hidden-phone">
-          <p>
-            <a href="https://github.com/volcra/hash-less/zipball/master" class="btn btn-large btn-primary">Download</a>
-            <a href="https://github.com/volcra/hash-less" class="btn btn-large">GitHub Project</a>
-          </p>
-        </div>
-      </div>
+<div class="jumbotron">
+  <div class="container">
+    <h1>#Less</h1>
+    <p class="lead">The Groovy Less Compiler</p>
+    <div class="visible-phone">
+      <p><a href="https://github.com/volcra/hash-less/zipball/master" class="btn btn-primary">Download</a> <a href="https://github.com/volcra/hash-less" class="btn">GitHub Project</a></p>
     </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-          <section></section>
-
-          <section>
-            <div class="lead">
-              <p><strong>#Less</strong> or Hash-Less is an implementation of the Less command line. It is written in Groovy and uses the core JavaScript compiler and Mozilla Rhino as libraries to compile the Less style sheet into CSS.</p>
-
-              <p>Many of the compiler options available in NodeJS are being ported to the Groovy version.</p>
-
-              <p><strong>#Less</strong> can be integrated as a Command Line Tool, JAR dependency and Maven or Gradle Plugins.</p>
-            </div>
-          </section>
-
-          <section class="groovy">
-            <div class="page-header">
-              <h1>Groovy</h1>
-            </div>
-            <div class="row">
-              <div class="span6 text-center">
-                <img src="img/groovy-logo.png" width="450" height="225">
-              </div>
-              <div class="span6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget interdum mi. Duis eget lacus sit amet lacus placerat ultricies nec in lorem. In felis mi, posuere imperdiet dignissim ut, tempus nec lectus. Sed auctor ante eu felis rhoncus feugiat. Nunc quis molestie nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce lacus lorem, lacinia sed vestibulum nec, ornare nec libero. Maecenas purus sapien, tristique sit amet imperdiet sed, posuere quis nibh.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="Less">
-            <div class="page-header">
-              <h1>Less</h1>
-            </div>
-            <div class="row">
-              <div class="span6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget interdum mi. Duis eget lacus sit amet lacus placerat ultricies nec in lorem. In felis mi, posuere imperdiet dignissim ut, tempus nec lectus. Sed auctor ante eu felis rhoncus feugiat. Nunc quis molestie nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce lacus lorem, lacinia sed vestibulum nec, ornare nec libero. Maecenas purus sapien, tristique sit amet imperdiet sed, posuere quis nibh.</p>
-              </div>
-              <div class="span6 text-center">
-                <img src="img/less-logo.png" width="199" height="81">
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </div>
+    <div class="hidden-phone">
+      <p>
+        <a href="https://github.com/volcra/hash-less/zipball/master" class="btn btn-large btn-primary">Download</a>
+        <a href="https://github.com/volcra/hash-less" class="btn btn-large">GitHub Project</a>
+      </p>
     </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <section>
+        <p class="lead"><strong>#Less</strong> or Hash-Less is an implementation of the Less command line. It is written in Groovy and uses the core JavaScript compiler and Mozilla Rhino as libraries to compile the Less style sheet into CSS.</p>
+        <p class="lead">Many of the compiler options available in NodeJS are being ported to the Groovy version.</p>
+        <p class="lead"><strong>#Less</strong> can be integrated as a Command Line Tool, JAR dependency and Maven or Gradle Plugins.</p>
+      </section>
+
+      <section>
+        <div class="page-header text-center">
+          <h1>Introduction</h1>
+        </div>
+        <p>#Less is developed in Groovy. Why? Groovy is a dynamic language for the JVM. Comes with features that
+          complement the Java development. Syntax is less verbose and Closures give the functional style missing in Java.
+          These and some other features increase developer productivity by reducing boilerplate code <span class="keyword">when</span> developing console
+          applications.</p>
+        <p>Less is a dynamic stylesheet language. It extends CSS with dynamic behavior such as functions, operations, etc.</p>
+        <p>Here is an example of the equivalent code in Less and CSS.</p>
+        <div class="row">
+          <div class="span6">
+            <small><strong>Less</strong></small>
+            <pre><code hljs class="css"><span class="keyword">@base</span>: <span class="rules"><span class="value"><span class="hexcolor">#f938ab;</span></span></span>
+
+.<span class="class">box-shadow</span><span class="rules"><span class="value">(<span class="keyword">@style</span>, <span class="keyword">@c</span>)</span> <span class="keyword">when</span> <span class="value">(iscolor(<span class="keyword">@c</span>))</span> {
+  <span class="attribute">box-shadow</span>:         <span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">-webkit-box-shadow</span>: <span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">-moz-box-shadow</span>:    <span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+}</span>
+.<span class="class">box-shadow</span><span class="rules"><span class="value">(<span class="keyword">@style</span>, <span class="keyword">@alpha</span>: <span class="number">50</span>%)</span> <span class="keyword">when</span> <span class="value">(isnumber(<span class="keyword">@alpha</span>))</span> {
+  .<span class="value">box-shadow(<span class="keyword">@style</span>, rgba(<span class="number">0, 0, 0</span>, <span class="keyword">@alpha</span>));</span>
+}</span>
+.<span class="class">box</span> <span class="rules">{
+  <span class="attribute">color</span>: <span class="value">saturate(<span class="keyword">@base</span>, <span class="number">5</span>%);</span>
+  <span class="attribute">border-color</span>: <span class="value">lighten(<span class="keyword">@base</span>, <span class="number">30</span>%);</span>
+  <span class="class">div</span> <span class="rules">{ .<span class="value">box-shadow</span><span class="value">(<span class="number">0 0 5</span>px, <span class="number">30</span>%)</span> }</span>
+}</span></code></pre>
+          </div>
+          <div class="span6">
+            <small><strong>CSS</strong></small>
+            <pre><code hljs class="css">.box {
+  color: #fe33ac;
+  border-color: #fdcdea;
+}
+.box div {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="page-header text-center">
+          <h1>Quick Start</h1>
+        </div>
+        <h2>Command-Line</h2>
+        <p>Download and build from source. For instructions go to <a href="#/download">Download</a>.</p>
+        <p>Then compile your scripts.</p>
+        <pre><code hljs class="bash">$>build\install\hash-less\bin\hash-less -c app.less</code></pre>
+        <h2>JAR dependency <span class="label label-important">Under development</span></h2>
+        <p><a href="api" target="_blank">API</a></p>
+        <div class="row">
+          <div class="span6">
+            <h3>Maven</h3>
+            <pre><code hljs class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.volcra.less&lt;/groupId&gt;
+  &lt;artifactId&gt;less-compiler&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+          </div>
+          <div class="span6">
+            <h3>Ivy</h3>
+            <pre><code hljs class="xml">&lt;dependency org="org.volcra.less" name="less-compiler" rev="1.0.0-SNAPSHOT" /&gt;
+</code></pre>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <h3>Gradle/Grails</h3>
+            <pre><code hljs class="java">compile 'org.volcra.less:less-compiler:1.0.0-SNAPSHOT'
+</code></pre>
+          </div>
+          <div class="span6">
+            <h3>Groovy Grape</h3>
+            <pre><code hljs class="java">@Grapes(
+  @Grab(group='org.volcra.less', module='less-compiler', version='1.0.0-SNAPSHOT')
+)</code></pre>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>

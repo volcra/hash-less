@@ -22,4 +22,3 @@ define(['app'], function (app) {
     }
   }]);
 });
-

@@ -1,0 +1,303 @@
+/* HTML
+---------------------------------------------------------------------------- */
+body {
+    background: url(../img/noise.png);
+    font-family: 'Marmelad', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+section .page-header {
+    color: rgb(179, 67, 67); /*#B95556; #F2595B;*/
+}
+
+section .lead {
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 3px solid #C93836;
+    background-color: #262523;
+    color: #ffffff;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+
+/* navbar
+---------------------------------------------------------------------------- */
+.navbar-wrapper {
+    background-color: #C93836;
+    height: 55px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: 0;
+    margin-bottom: -55px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-wrapper .navbar {
+}
+
+/* Remove border and change up box shadow for more contrast */
+.navbar-coffee .navbar-inner {
+    font-family: 'Finger Paint', cursive;
+    background: #C93836;
+    border: 0;
+    filter: none;
+}
+
+/* Offset the responsive button for proper vertical alignment */
+.navbar-coffee.navbar .btn-navbar {
+    margin: 13px 0;
+}
+
+.navbar-coffee .brand,
+.navbar-coffee .nav > li > a {
+  padding: 17px 20px 18px;
+  color: #333;
+  text-shadow: none;
+}
+
+/* Downsize the brand/project name a bit */
+.navbar-coffee .brand {
+    font-size: 31px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: none;
+    padding-left: 0;
+}
+
+.navbar-coffee .nav > li > a {
+  font-size: 18px;
+}
+
+.navbar-coffee .brand:hover,
+.navbar-coffee .brand:focus {
+    color: #333;
+}
+
+.navbar-coffee .nav > li > a:hover,
+.navbar-coffee .nav > li > a:focus {
+  color: #ffffff;
+}
+
+.navbar-coffee .brand {
+  color: #333;
+}
+
+.navbar-coffee .navbar-text {
+  color: #333;
+}
+
+.navbar-coffee .nav > li > a:focus,
+.navbar-coffee .nav > li > a:hover {
+  color: #ffffff;
+  background-color: rgb(179, 67, 67);;
+}
+
+.navbar-coffee .nav .active > a,
+.navbar-coffee .nav .active > a:hover,
+.navbar-coffee .nav .active > a:focus {
+  color: #ffffff;
+  background-color: rgb(179, 67, 67);
+  -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.20);
+     -moz-box-shadow: inset 0 0 8px rgba(0,0,0,0.20);
+          box-shadow: inset 0 0 8px rgba(0,0,0,0.20);
+}
+
+.navbar-coffee .navbar-link {
+  color: #333;
+}
+
+.navbar-coffee .navbar-link:hover,
+.navbar-coffee .navbar-link:focus {
+  color: #ffffff;
+}
+
+.navbar-coffee .divider-vertical {
+  border-right-color: #C93836;
+  border-left-color: rgb(179, 67, 67);
+}
+
+.navbar-coffee .nav li.dropdown.open > .dropdown-toggle,
+.navbar-coffee .nav li.dropdown.active > .dropdown-toggle,
+.navbar-coffee .nav li.dropdown.open.active > .dropdown-toggle {
+  color: #ffffff;
+  background-color: rgb(179, 67, 67);
+}
+
+.navbar-coffee .nav li.dropdown > a:hover .caret,
+.navbar-coffee .nav li.dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.navbar-coffee .nav li.dropdown > .dropdown-toggle .caret {
+  border-top-color: #333;
+  border-bottom-color: #333;
+}
+
+.navbar-coffee .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar-coffee .nav li.dropdown.active > .dropdown-toggle .caret,
+.navbar-coffee .nav li.dropdown.open.active > .dropdown-toggle .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.navbar-coffee .navbar-search .search-query {
+  color: #ffffff;
+  background-color: #515151;
+  border-color: rgb(179, 67, 67);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.15);
+     -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.15);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.15);
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+.navbar-coffee .navbar-search .search-query:-moz-placeholder {
+  color: #cccccc;
+}
+
+.navbar-coffee .navbar-search .search-query:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.navbar-coffee .navbar-search .search-query::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.navbar-coffee .navbar-search .search-query:focus,
+.navbar-coffee .navbar-search .search-query.focused {
+  padding: 5px 15px;
+  color: #333333;
+  text-shadow: 0 1px 0 #ffffff;
+  background-color: #ffffff;
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-coffee .btn-navbar {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #C93836;
+  *background-color: rgb(179, 67, 67);
+  background-image: -moz-linear-gradient(top, #C93836, rgb(179, 67, 67));
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#C93836), to(rgb(179, 67, 67)));
+  background-image: -webkit-linear-gradient(top, #C93836, rgb(179, 67, 67));
+  background-image: -o-linear-gradient(top, #C93836, rgb(179, 67, 67));
+  background-image: linear-gradient(to bottom, #C93836, rgb(179, 67, 67));
+  background-repeat: repeat-x;
+  border-color: rgb(179, 67, 67) rgb(179, 67, 67) #C93836;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff151515', endColorstr='#ff040404', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.navbar-coffee .btn-navbar:hover,
+.navbar-coffee .btn-navbar:focus,
+.navbar-coffee .btn-navbar:active,
+.navbar-coffee .btn-navbar.active,
+.navbar-coffee .btn-navbar.disabled,
+.navbar-coffee .btn-navbar[disabled] {
+  color: #ffffff;
+  background-color: rgb(179, 67, 67);
+  *background-color: #C93836;
+}
+
+.navbar-coffee .btn-navbar:active,
+.navbar-coffee .btn-navbar.active {
+  background-color: #C93836 \9;
+}
+
+.navbar .btn-navbar .icon-bar {
+  background-color: #333;
+}
+
+/* jumbotron
+---------------------------------------------------------------------------- */
+.jumbotron {
+    position: relative;
+    text-align: center;
+    margin-top: 55px;
+    color: #ddd;
+    padding: 50px 0;
+    padding-top: 55px;
+    background-color: #262523;
+    font-family: 'Finger Paint', cursive;
+    text-shadow: 0 5px 10px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,1);
+    -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.7), inset 0 -3px 7px rgba(0,0,0,.7);
+       -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.7), inset 0 -3px 7px rgba(0,0,0,.7);
+            box-shadow: inset 0 3px 7px rgba(0,0,0,.7), inset 0 -3px 7px rgba(0,0,0,.7);
+}
+
+.jumbotron h1 {
+    font-size: 100px;
+    line-height: 1;
+}
+
+.jumbotron p {
+    font-size: 50px;
+    line-height: 1.5;
+}
+
+.jumbotron:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../img/noise-02.png) repeat center center;
+    opacity: 1;
+}
+
+.jumbotron .container {
+    z-index: 2;
+    position: relative;
+}
+
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 20px 0 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+*::-moz-selection {
+    background: rgba(172, 172, 172, 0.99);
+    color: rgb(62, 90, 138);
+}
+
+*::-webkit-selection {
+    background: rgba(172, 172, 172, 0.99);
+    color: rgb(62, 90, 138);
+}
+
+*::selection {
+    background: rgba(172, 172, 172, 0.99);
+    color: rgb(62, 90, 138);
+}
