@@ -1,4 +1,5 @@
 body{background-image:url(../img/noise.png);font-family:'Marmelad', sans-serif;font-style:normal;font-weight:400;padding-top:45px;font-size:15px;}
+.ie8 body{padding-top:45px;}
 section .page-header{color:rgb(179, 67, 67);border-bottom:1px solid #bbb;}
 section.intro img{margin:20px;}
 footer{text-align:center;padding:30px 0;border-top:3px solid #C93836;background-color:#262523;color:#ffffff;}
@@ -17,10 +18,15 @@ h5.code{padding:2px 4px;color:#4E4E4E;white-space:nowrap;background-color:#f7f7f
 .navbar-fixed-top{margin-bottom:0;}
 .navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner{border-width:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
+.ie8 .navbar .nav li a,
 .navbar .nav > li > a{text-shadow:none;color:#333;}
 .navbar .brand{font-size:24px;font-weight:bold;}
 .navbar .nav > li > a{font-size:16px;}
 .navbar .btn-navbar .icon-bar{background-color:#333;}
+.ie8 .nav-collapse .nav li a:hover,
+.ie8 .nav-collapse .nav li a:focus,
+.ie8 .nav-collapse .dropdown-menu a:hover,
+.ie8 .nav-collapse .dropdown-menu a:focus,
 .nav-collapse .nav > li > a:hover,
 .nav-collapse .nav > li > a:focus,
 .nav-collapse .dropdown-menu a:hover,

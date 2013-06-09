@@ -9,6 +9,10 @@ body {
   font-size: 15px;
 }
 
+.ie8 body {
+  padding-top: 45px;
+}
+
 section .page-header {
   color: rgb(179, 67, 67);
   border-bottom: 1px solid #bbb;
@@ -104,6 +108,7 @@ h5.code {
           box-shadow: none;
 }
 
+.ie8 .navbar .nav li a,
 .navbar .nav > li > a {
   text-shadow: none;
   color: #333;
@@ -122,6 +127,10 @@ h5.code {
   background-color: #333;
 }
 
+.ie8 .nav-collapse .nav li a:hover,
+.ie8 .nav-collapse .nav li a:focus,
+.ie8 .nav-collapse .dropdown-menu a:hover,
+.ie8 .nav-collapse .dropdown-menu a:focus,
 .nav-collapse .nav > li > a:hover,
 .nav-collapse .nav > li > a:focus,
 .nav-collapse .dropdown-menu a:hover,
