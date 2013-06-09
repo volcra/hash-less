@@ -39,9 +39,9 @@
             <pre><code hljs class="css"><span class="keyword">@base</span>: <span class="rules"><span class="value"><span class="hexcolor">#f938ab;</span></span></span>
 
 .<span class="class">box-shadow</span><span class="rules"><span class="value">(<span class="keyword">@style</span>, <span class="keyword">@c</span>)</span> <span class="keyword">when</span> <span class="value">(iscolor(<span class="keyword">@c</span>))</span> {
-  <span class="attribute">box-shadow</span>:         <span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
-  <span class="attribute">-webkit-box-shadow</span>: <span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
-  <span class="attribute">-moz-box-shadow</span>:    <span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">box-shadow</span>:         <span class="value"><span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">-webkit-box-shadow</span>: <span class="value"><span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
+  <span class="attribute">-moz-box-shadow</span>:    <span class="value"><span class="keyword">@style</span> <span class="keyword">@c</span>;</span>
 }</span>
 .<span class="class">box-shadow</span><span class="rules"><span class="value">(<span class="keyword">@style</span>, <span class="keyword">@alpha</span>: <span class="number">50</span>%)</span> <span class="keyword">when</span> <span class="value">(isnumber(<span class="keyword">@alpha</span>))</span> {
   .<span class="value">box-shadow(<span class="keyword">@style</span>, rgba(<span class="number">0, 0, 0</span>, <span class="keyword">@alpha</span>));</span>
