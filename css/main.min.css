@@ -4,8 +4,10 @@ section .page-header{color:rgb(179, 67, 67);border-bottom:1px solid #bbb;}
 section.intro img{margin:20px;}
 footer{text-align:center;padding:30px 0;border-top:3px solid #C93836;background-color:#262523;color:#ffffff;}
 footer p{margin-bottom:0;}
-pre{background-color:#3f3f3f;padding:5px;}
-pre.screen{padding:11px;color:darkgreen;background-color:#f7f7f9;font-size:13px;}
+footer .volcra{margin:10px;}
+pre{background-color:#3f3f3f;padding:6px;-webkit-box-shadow:inset 0 0 10px #222;moz-box-shadow:inset 0 0 10px #222;box-shadow:inset 0 0 10px #222;}
+pre code{background-color:transparent;}
+pre.screen{padding:11px;color:darkgreen;background-color:#f7f7f9;font-size:13px;-webkit-box-shadow:inset 0 0 10px #999;moz-box-shadow:inset 0 0 10px #999;box-shadow:inset 0 0 10px #999;}
 h1.code,
 h2.code,
 h3.code,

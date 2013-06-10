@@ -34,9 +34,20 @@ footer p {
   margin-bottom: 0;
 }
 
+footer .volcra {
+  margin: 10px;
+}
+
 pre {
   background-color: #3f3f3f;
-  padding: 5px;
+  padding: 6px;
+  -webkit-box-shadow: inset 0 0 10px #222;
+      moz-box-shadow: inset 0 0 10px #222;
+          box-shadow: inset 0 0 10px #222;
+}
+
+pre code {
+  background-color: transparent;
 }
 
 pre.screen {
@@ -44,6 +55,9 @@ pre.screen {
   color: darkgreen;
   background-color: #f7f7f9;
   font-size: 13px;
+  -webkit-box-shadow: inset 0 0 10px #999;
+      moz-box-shadow: inset 0 0 10px #999;
+          box-shadow: inset 0 0 10px #999;
 }
 
 h1.code,
