@@ -14,8 +14,8 @@ define(['angular'], function (angular) {
     }])
     .run(function ($rootScope, $location) {
       $rootScope.$on("$routeChangeSuccess", function(current, previous) {
-        if (typeof previous.$route != 'undefined')
-          ga.push(['_trackPageview', previous.$route.templateUrl]);
+        if (typeof previous.$$route.templateUrl != 'undefined')
+          ga('send', 'pageview', { 'page': previous.$$route.templateUrl });
       });
     });
 });
