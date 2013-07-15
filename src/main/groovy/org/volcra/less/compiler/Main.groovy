@@ -15,8 +15,6 @@
  */
 package org.volcra.less.compiler
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException
-
 /**
  * <p>Main class.</p>
  * <p>Parses the command line arguments and runs the Less compiler.</p>
