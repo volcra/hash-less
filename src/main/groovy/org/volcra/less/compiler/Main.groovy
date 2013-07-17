@@ -42,12 +42,12 @@ class Main {
         } else {
             def file = new File(options.arguments()[0])
 
-            if(options.j) {
+            if (options.j) {
                 file = new File(options.j)
                 //TODO: Discuss w/ team what to do if file already exists, e.g. ask user or clear all
 
                 options.arguments().each {
-                    file.append new File(it).getText(), 'UTF-8'
+                    file.append new File(it).text, 'UTF-8'
                 }
             }
 
