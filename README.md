@@ -6,8 +6,6 @@ Many of the compiler options available in NodeJS are being ported to the Groovy 
 
 \#Less can be integrated as a Command Line Tool, JAR dependency and Maven or Gradle Plugins.
 
-It is developed in Groovy and targets the JVM 5 to 7.
-
 
 ## Getting Started
 
