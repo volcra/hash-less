@@ -40,14 +40,25 @@ class Main {
         if (options.arguments().isEmpty() || options.h) {
             CLI.usage()
         } else {
+            def file = new File(options.arguments()[0])
+
+            if (options.j) {
+                file = new File(options.j)
+                //TODO: Discuss w/ team what to do if file already exists, e.g. ask user or clear all
+
+                options.arguments().each {
+                    file.append new File(it).text, 'UTF-8'
+                }
+            }
+
             def writer = new StringWriter()
-            COMPILER.compile new File(options.arguments()[0]), writer, options.c
+            COMPILER.compile file, writer, options.c
 
             if (options.p) {
                 println writer
+                file.delete()   //Output file not really needed
             } else {
-                def fileName = options.arguments()[0].replace '.less', '.css'
-
+                def fileName = file.name.replace '.less', '.css'
                 new File(fileName as String).withWriter('UTF-8') {
                     it.writeLine writer.toString()
                 }

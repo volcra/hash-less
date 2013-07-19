@@ -33,6 +33,11 @@ class MainTest extends GroovyTestCase {
         Main.main '-h'
     }
 
+    void testJoin() {
+        Main.main '-j join.css', '-p', 'src\\test\\resources\\test.less', 'src\\test\\resources\\vars.less'
+        Main.main '-j join.css', 'src\\test\\resources\\test.less', 'src\\test\\resources\\vars.less'
+    }
+
     void testBootstrapCompile() {
         Main.main 'src\\test\\resources\\bootstrap\\bootstrap.less'
         Main.main '-cp', 'src\\test\\resources\\bootstrap\\bootstrap.less'
