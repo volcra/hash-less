@@ -34,8 +34,8 @@ class MainTest extends GroovyTestCase {
     }
 
     void testJoin() {
-        Main.main '-jjoin.css', '-p', 'src\\test\\resources\\test.less', 'src\\test\\resources\\vars.less'
-       Main.main '-jjoin.css', 'src\\test\\resources\\test.less', 'src\\test\\resources\\vars.less'
+       Main.main '-j', 'join.css', '-p', 'src\\test\\resources\\test.less', 'src\\test\\resources\\vars.less'
+       Main.main '-j', 'join.css', 'src\\test\\resources\\test.less', 'src\\test\\resources\\vars.less'
     }
 
     void testBootstrapCompile() {
@@ -44,6 +44,6 @@ class MainTest extends GroovyTestCase {
     }
 
     void testOut() {
-        Main.main '-otemp', 'src\\test\\resources\\test.less'
+        Main.main '-o', 'temp', 'src\\test\\resources\\test.less'
     }
 }
