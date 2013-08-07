@@ -42,9 +42,15 @@ class Main {
         } else {
             def file = new File(options.arguments()[0])
 
+            //Output folder
+            def outDir = new File(options.o ?: ".")
+            if (!outDir.exists() || !outDir.isDirectory()) {
+                outDir.mkdir()
+            }
+
             if (options.j) {
-                file = new File(options.j)
-                //TODO: Discuss w/ team what to do if file already exists, e.g. ask user or clear all
+                //When print-only, create a temp file where all files will be joined, otherwise create a file
+                file = options.p ? File.createTempFile("hash-less-tmp", null) : new File(outDir, options.j as String)
 
                 options.arguments().each {
                     file.append new File(it).text, 'UTF-8'
@@ -56,10 +62,9 @@ class Main {
 
             if (options.p) {
                 println writer
-                file.delete()   //Output file not really needed
             } else {
                 def fileName = file.name.replace '.less', '.css'
-                new File(fileName as String).withWriter('UTF-8') {
+                new File(outDir, fileName).withWriter('UTF-8') {
                     it.writeLine writer.toString()
                 }
             }

@@ -33,7 +33,8 @@ class CommandLine {
             c longOpt: 'compress', 'Compile the Less compressing the content.'
             j longOpt: 'join', args: 1,
                 argName: 'FILE', 'Before compiling, concatenate all scripts together in the order they were \
-                                  passed, and write them into the specified file. Useful for building large projects.'
+                                  passed, and write them into the specified file. If the file already exists, \
+                                  it will append to it. Useful for building large projects.'
             o longOpt: 'output', args: 1,
                 argName: 'DIR', 'Write out all compiled Less files into the specified directory.'
             p longOpt: 'print', 'Instead of writing out the Less as a file, print it directly to stdout.'
