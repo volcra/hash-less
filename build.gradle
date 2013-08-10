@@ -34,10 +34,6 @@ jar {
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.6'
-}
-
 task libs(type: Sync) {
     from configurations.compile
     into 'build\\libs'
