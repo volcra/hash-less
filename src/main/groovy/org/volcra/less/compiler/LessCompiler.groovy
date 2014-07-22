@@ -21,7 +21,7 @@ import org.mozilla.javascript.tools.shell.Global
 /**
  * Less compiler.
  */
-@Singleton(lazy = true)
+@Singleton(lazy = true, strict = false)
 class LessCompiler {
     /**
      * Global Scope.
@@ -37,10 +37,10 @@ class LessCompiler {
         getClass().getResource('/org/volcra/less/env.rhino.1.2.js').text
 
     private static final LESS_JS =
-        getClass().getResource('/org/volcra/less/less-1.3.3.min.js').text
+        getClass().getResource('/org/volcra/less/less-1.7.3.js').text
 
     private static final COMPILER_JS =
-        getClass().getResource('/org/volcra/less/compiler.min.js').text
+        getClass().getResource('/org/volcra/less/compiler.js').text
 
     private static final IMPORT_PATTERN = ~/^\s*@import\s+[\"|'](.+)[\"|'];.*$/
 
@@ -73,7 +73,7 @@ class LessCompiler {
     void compile(File source, Writer writer, Boolean compress = false) {
         def lessCode = new StringWriter()
 
-        source.newReader().transformLine lessCode, transformImportToText.curry(source.parentFile)
+        source.newReader().transformLine lessCode, importToSource.curry(source.parentFile)
 
         withContext {
             writer << compileFn.call(it, globalScope, null, [lessCode.toString(), compress] as Object[])
@@ -96,8 +96,23 @@ class LessCompiler {
         }
     }
 
-    private final transformImportToText = { File parentFile, String line ->
-        if (line ==~ IMPORT_PATTERN) new File(parentFile, (line =~ IMPORT_PATTERN)[0][1] as String).text
+    /**
+     * Recursively looks for @import directives opens the file to get its content and return the CSS code.
+     */
+    private final importToSource = { File parentFile, String line ->
+        if (line ==~ IMPORT_PATTERN) importToSourceIter parentFile, line
         else line
+    }
+
+    /**
+     * Helper method to recursively call {@link #importToSource} with the current directory of the file and the text content of the imported source.
+     */
+    private final importToSourceIter = { File parentFile, String line ->
+        def importFile = new File(parentFile as File, (line =~ IMPORT_PATTERN)[0][1] as String)
+        def lessCode = new StringWriter()
+
+        importFile.newReader().transformLine lessCode, importToSource.curry(importFile.parentFile)
+
+        lessCode.toString()
     }
 }

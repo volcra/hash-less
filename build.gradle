@@ -12,23 +12,16 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.1.3:indy'
+    compile 'org.codehaus.groovy:groovy-all:2.3.4'
     compile 'org.mozilla:rhino:1.7R4'
     compile 'commons-cli:commons-cli:1.2'
     compile 'commons-io:commons-io:2.4'
-    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.7'
 
     testCompile 'junit:junit:4.11'
 }
 
 jar {
-    /*
-    from {
-        configurations.compile.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }*/
-
     manifest {
         attributes 'Main-Class': 'org.volcra.less.compiler.Main'
     }
@@ -37,4 +30,8 @@ jar {
 task libs(type: Sync) {
     from configurations.compile
     into 'build\\libs'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
 }

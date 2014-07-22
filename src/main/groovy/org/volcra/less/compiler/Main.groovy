@@ -34,7 +34,6 @@ class Main {
      * Parsers the command line arguments and runs the Less compiler.
      */
     static void main(String... args) {
-        def start = System.currentTimeMillis()
         def options = CLI.parse args
 
         if (options.arguments().isEmpty() || options.h) {
@@ -70,6 +69,5 @@ class Main {
             }
         }
 
-        println System.currentTimeMillis() - start
     }
 }
