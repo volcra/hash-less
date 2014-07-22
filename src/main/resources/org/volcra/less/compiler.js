@@ -15,10 +15,16 @@
  */
 var compile = function (source, compress) {
     var result;
-    var parser = new less.Parser();
+    //var parser = new(less.Parser);
+
+    var parser = new(less.Parser)({
+		paths: ['.'], // Specify search paths for @import directives
+		filename: 'style.less' // Specify a filename, for better error messages
+	});
 
     parser.parse(source, function(e, tree) {
-        if (e instanceof Object) {
+        if (e) {
+        	for (i in e) java.lang.System.out.println(i + ':' + e[i]);
             throw e;
         }
 
