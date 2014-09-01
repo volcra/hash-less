@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.4'
+    compile 'org.codehaus.groovy:groovy-all:2.3.6'
     compile 'org.mozilla:rhino:1.7R4'
     compile 'commons-cli:commons-cli:1.2'
     compile 'commons-io:commons-io:2.4'
@@ -25,6 +25,10 @@ jar {
     manifest {
         attributes 'Main-Class': 'org.volcra.less.compiler.Main'
     }
+}
+
+startScripts {
+    applicationName = '#less'
 }
 
 task libs(type: Sync) {
