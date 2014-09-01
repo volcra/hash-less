@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package org.volcra.less.compiler
+package org.volcra.less.compiler
 
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.tools.shell.Global
@@ -37,7 +37,7 @@ class LessCompiler {
         getClass().getResource('/org/volcra/less/env.rhino.1.2.js').text
 
     private static final LESS_JS =
-        getClass().getResource('/org/volcra/less/less-1.7.3.js').text
+        getClass().getResource('/org/volcra/less/less-1.7.4.js').text
 
     private static final COMPILER_JS =
         getClass().getResource('/org/volcra/less/compiler.js').text
