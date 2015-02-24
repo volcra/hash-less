@@ -1,29 +1,64 @@
 apply plugin: 'groovy'
 apply plugin: 'application'
 apply plugin: 'codenarc'
+apply plugin: 'idea'
+apply plugin: 'maven'
 
-version = '0.0.1-SNAPSHOT'
+version = '0.1.0-SNAPSHOT'
 mainClassName = 'org.volcra.less.compiler.Main'
 
-repositories {
-    mavenCentral()
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
-    mavenLocal()
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+configurations {
+    all*.exclude module: 'commons-logging'
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.6'
-    compile 'org.mozilla:rhino:1.7R4'
+    compile 'org.codehaus.groovy:groovy-all:2.4.1:indy'
+    compile 'org.mozilla:rhino:1.7R5'
     compile 'commons-cli:commons-cli:1.2'
     compile 'commons-io:commons-io:2.4'
-    compile 'org.slf4j:slf4j-log4j12:1.7.7'
+    compile 'org.slf4j:slf4j-log4j12:1.7.10'
 
-    testCompile 'junit:junit:4.11'
+    testCompile 'junit:junit:4.12'
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'org.volcra.less.compiler.Main'
+tasks.withType(GroovyCompile) {
+    groovyOptions.optimizationOptions.indy = true
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task less(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'org.volcra.less.compiler.Main'
+}
+
+assemble.dependsOn installDist
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
     }
 }
 
@@ -31,11 +66,6 @@ startScripts {
     applicationName = '#less'
 }
 
-task libs(type: Sync) {
-    from configurations.compile
-    into 'build\\libs'
-}
-
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.0'
+    gradleVersion = '2.3'
 }

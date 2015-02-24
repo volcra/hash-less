@@ -15,6 +15,9 @@
  */
 package org.volcra.less.compiler
 
+/**
+ * Test class for Main.
+ */
 class MainTest extends GroovyTestCase {
     void testMain() {
         Main.main 'src\\test\\resources\\test.less'

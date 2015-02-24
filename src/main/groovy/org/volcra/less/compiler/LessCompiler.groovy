@@ -37,7 +37,7 @@ class LessCompiler {
         getClass().getResource('/org/volcra/less/env.rhino.1.2.js').text
 
     private static final LESS_JS =
-        getClass().getResource('/org/volcra/less/less-1.7.4.js').text
+        getClass().getResource('/org/volcra/less/less-rhino-1.7.5.js').text
 
     private static final COMPILER_JS =
         getClass().getResource('/org/volcra/less/compiler.js').text
@@ -56,7 +56,7 @@ class LessCompiler {
 
             globalScope = it.initStandardObjects global
             it.evaluateString globalScope, ENV_RHINO_JS, 'env.rhino.js', 1, null
-            it.evaluateString globalScope, LESS_JS, 'less.js', 1, null
+            it.evaluateString globalScope, LESS_JS, 'less-rhino.js', 1, null
             it.evaluateString globalScope, COMPILER_JS, 'compiler.js', 1, null
 
             compileFn = globalScope.get 'compile', globalScope
@@ -105,7 +105,8 @@ class LessCompiler {
     }
 
     /**
-     * Helper method to recursively call {@link #importToSource} with the current directory of the file and the text content of the imported source.
+     * Helper method to recursively call {@link #importToSource} with the current directory of the
+     * file and the text content of the imported source.
      */
     private final importToSourceIter = { File parentFile, String line ->
         def importFile = new File(parentFile as File, (line =~ IMPORT_PATTERN)[0][1] as String)
